@@ -1,0 +1,585 @@
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #172033;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: white;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #5b5bf7;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #5b5bf7;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.login-btn {
+    background: transparent;
+    padding: 10px 18px;
+}
+
+.register-btn {
+    background: #5b5bf7;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 8px;
+}
+
+.register-btn:hover {
+    background: #4141d6;
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    font-size: 28px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #e1e3ff,
+            transparent 40%
+        ),
+        #f7f8ff;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.small-title {
+    color: #5b5bf7;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #5b5bf7;
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: auto;
+    color: #667085;
+    font-size: 18px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    max-width: 650px;
+    margin: 35px auto 0;
+
+    display: flex;
+
+    background: white;
+    padding: 8px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 15px;
+
+    font-size: 16px;
+}
+
+.search-box button {
+    background: #5b5bf7;
+    color: white;
+
+    padding: 0 25px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #3f3fd0;
+    transform: scale(1.03);
+}
+
+.search-message {
+    margin-top: 15px;
+    color: #5b5bf7;
+    font-weight: bold;
+}
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+    padding: 90px 7%;
+    background: white;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading p {
+    color: #5b5bf7;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+}
+
+.category-card {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border: 1px solid #e8eaf0;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.category-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 17px;
+}
+
+.category-card p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-section {
+    padding: 90px 7%;
+    background: #f5f6ff;
+}
+
+.steps {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+    max-width: 1000px;
+    margin: auto;
+}
+
+.step {
+    background: white;
+    padding: 35px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    width: 55px;
+    height: 55px;
+
+    margin: auto auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #5b5bf7;
+    color: white;
+
+    font-weight: bold;
+}
+
+.step p {
+    color: #707070;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   FREELANCERS
+========================= */
+
+.freelancer-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1100px;
+    margin: auto;
+}
+
+.freelancer-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    transition: 0.3s;
+}
+
+.freelancer-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.avatar {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.profession {
+    color: #5b5bf7;
+    margin: 5px 0;
+}
+
+.rating {
+    margin: 10px 0;
+}
+
+.freelancer-card p:last-of-type {
+    color: #777;
+    font-size: 14px;
+}
+
+.view-btn {
+    margin-top: 20px;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    background: #172033;
+    color: white;
+}
+
+.view-btn:hover {
+    background: #5b5bf7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111827;
+    color: white;
+
+    padding: 60px 7% 20px;
+}
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 50px;
+
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-content h2 {
+    margin-bottom: 12px;
+}
+
+.footer-content h3 {
+    margin-bottom: 15px;
+}
+
+.footer-content p {
+    color: #aeb5c3;
+}
+
+.footer-content a {
+    display: block;
+
+    text-decoration: none;
+
+    color: #aeb5c3;
+
+    margin-bottom: 8px;
+}
+
+.footer-content a:hover {
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+
+    border-top: 1px solid #303746;
+
+    margin-top: 40px;
+
+    padding-top: 20px;
+
+    color: #9ca3af;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        background: white;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .freelancer-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 550px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 60px 18px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .search-box {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .search-box button {
+        width: 100%;
+        padding: 13px;
+    }
+
+    .section,
+    .how-section {
+        padding: 65px 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+

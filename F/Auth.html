@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelancer Portal - Login & Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Background Animated Shapes -->
+  <div class="bg-shape shape1"></div>
+  <div class="bg-shape shape2"></div>
+
+  <div class="main-container">
+    
+    <!-- Left Hero Section -->
+    <div class="hero-section">
+      <div class="brand">
+        <i class="fa-solid fa-briefcase brand-icon"></i>
+        <span>Skill-Hub</span>
+      </div>
+      <div class="hero-content">
+        <h1>Connect with Top Global Talent & Projects</h1>
+        <p>Join thousands of freelancers and clients who build amazing products together every day.</p>
+        <div class="features">
+          <div class="feature-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Secure Escrow Payments</span>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Instant Hiring & Proposals</span>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>24/7 Dedicated Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="form-section">
+      <div class="top-bar">
+        <button id="themeToggle" class="theme-toggle" title="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+        <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="loginForm" class="auth-form active-form" onsubmit="handleLogin(event)">
+        <h2>Welcome Back! 👋</h2>
+        <p class="subtitle">Please enter your details to sign in.</p>
+
+        <div class="input-group">
+          <label for="loginEmail">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-envelope input-icon"></i>
+            <input type="email" id="loginEmail" placeholder="name@example.com" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="loginPassword">Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="loginPassword" placeholder="••••••••" required>
+            <i class="fa-regular fa-eye toggle-password" onclick="togglePasswordVisibility('loginPassword', this)"></i>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <label class="remember-me">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-pass" onclick="handleForgotPassword(event)">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <span>Sign In</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <div class="social-login">
+          <button type="button" class="btn-social" onclick="socialLogin('Google')">
+            <i class="fa-brands fa-google"></i> Google
+          </button>
+          <button type="button" class="btn-social" onclick="socialLogin('GitHub')">
+            <i class="fa-brands fa-github"></i> GitHub
+          </button>
+        </div>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+        <h2>Create Account 🚀</h2>
+        <p class="subtitle">Join as a Freelancer or Client today.</p>
+
+        <!-- Role Selector -->
+        <div class="role-selector">
+          <label class="role-option">
+            <input type="radio" name="accountType" value="freelancer" checked>
+            <div class="role-card">
+              <i class="fa-solid fa-user-ninja"></i>
+              <span>I want to Work</span>
+            </div>
+          </label>
+          <label class="role-option">
+            <input type="radio" name="accountType" value="client">
+            <div class="role-card">
+              <i class="fa-solid fa-user-tie"></i>
+              <span>I want to Hire</span>
+            </div>
+          </label>
+        </div>
+
+        <div class="input-group">
+          <label for="signupName">Full Name</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-user input-icon"></i>
+            <input type="text" id="signupName" placeholder="Full Name" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="signupEmail">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-envelope input-icon"></i>
+            <input type="email" id="signupEmail" placeholder="name@example.com" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="signupPassword">Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="signupPassword" placeholder="••••••••" oninput="checkPasswordStrength(this.value)" required>
+            <i class="fa-regular fa-eye toggle-password" onclick="togglePasswordVisibility('signupPassword', this)"></i>
+          </div>
+          <!-- Password Strength Meter -->
+          <div class="strength-bar-container">
+            <div id="strengthBar" class="strength-bar"></div>
+          </div>
+          <span id="strengthText" class="strength-text"></span>
+        </div>
+
+        <label class="terms-label">
+          <input type="checkbox" required>
+          <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary">
+          <span>Create Account</span>
+          <i class="fa-solid fa-user-plus"></i>
+        </button>
+
+        <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <div class="social-login">
+          <button type="button" class="btn-social" onclick="socialLogin('Google')">
+            <i class="fa-brands fa-google"></i> Google
+          </button>
+          <button type="button" class="btn-social" onclick="socialLogin('GitHub')">
+            <i class="fa-brands fa-github"></i> GitHub
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+<script>
+    const mode = new URLSearchParams(window.location.search).get("mode");
+
+    if (mode === "signup") {
+        switchTab("signup");
+    } else {
+        switchTab("login");
+    }
+</script>
+
+</body>
+</html>
